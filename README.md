@@ -30,6 +30,5 @@ Most of these training datasets (like Widar 3.0) are recorded with Wi-Fi cards s
 **3.Speed causes Doppler shifts:** A drone flying at 10 m/s compresses the incoming radio waves. This artificially changes the spacing between the OFDM subcarriers, which totally messes up the Time of Flight calculations.
 
 # How I'd Actually Build It
-Because of all this, putting the receiver and the processor on the drone is a trap. You can't put a sensitive measuring instrument on a vibrating paint shaker.
 
-To actually make this work, the architecture has to be flipped. The drone should just be a "dumb" transmitter constantly blasting empty Wi-Fi packets. The routers bolted to the walls (which don't vibrate or tilt) should act as the receivers. An edge server on the network can do the heavy SpotFi math and beam the coordinates back to the drone. As long as the packets are strictly timestamped, the drone's Kalman filter can fuse the delayed Wi-Fi data with its live IMU data so it never flies blind.
+To actually make this work, the architecture has to be flipped. The drone should just be a  transmitter constantly blasting empty Wi-Fi packets. The routers bolted to the walls (which don't vibrate or tilt) should act as the receivers. An edge server on the network can do the heavy SpotFi math and beam the coordinates back to the drone. As long as the packets are strictly timestamped, the drone's Kalman filter can fuse the delayed Wi-Fi data with its live IMU data so it never flies blind.
