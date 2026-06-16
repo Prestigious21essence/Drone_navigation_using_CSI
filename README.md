@@ -15,7 +15,7 @@ Both of these papers get impressive accuracy, but they clearly assume the receiv
 
 **2.The Processing Bottleneck**: This is the real killer for SpotFi. A drone's microcontroller has to run a PID loop hundreds of times a second just to keep the motors balanced. SpotFi relies on heavy matrix math (Eigenvalue Decomposition). If you force a drone's flight controller to pause and crunch that math, you starve the IMU of CPU time. The drone will literally flip over and crash while trying to calculate where it is.
 
-**3.The "Just Add More Compute" Trap**: You might be thinking, "Why not just strap a super-fast FPGA or a dedicated DSP chip to the drone to do the math instantly?" It is a logical fix, but it still fails because of the physics. Even if the processor is lightning-fast, the drone is still vibrating and tilting. A faster chip just means you are doing perfect math on broken, noisy RF data. Plus, strapping a power-hungry compute module to a drone would absolutely tank your battery life.
+**3.The "Just Add More Compute" Trap**: One can think, "Why not just strap a super-fast FPGA or a dedicated DSP chip to the drone to do the math instantly?" It is a logical fix, but it still fails because of the physics. Even if the processor is lightning-fast, the drone is still vibrating and tilting. A faster chip just means you are doing perfect math on broken, noisy RF data. Plus, strapping a power-hungry compute module to a drone would absolutely tank your battery life.
 
 # Part 2: The Data & The Physics of Flight
 (Note: The Python script for extracting features and running the simple classifier on the Widar 3.0 dataset is in the /code directory).
